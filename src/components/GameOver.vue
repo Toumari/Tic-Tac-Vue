@@ -1,21 +1,20 @@
 <template>
     <div>
         <h1>Game Over</h1>
-        <p>Winner: {{ props.winner }}</p>
+        <p v-if="!isDraw">Result: {{ winner }}</p>
+        <p v-else>It's a draw!</p>
         <button @click="$emit('onRestart')">Restart Game</button>
     </div>
 </template>
 
 <script setup>
 
-import { ref } from 'vue'
+
 
 const props = defineProps({
-    winner: String
+    winner: String,
+    isDraw: Boolean
 })
-
-console.log(props.winner)
-
 
 </script>
 
